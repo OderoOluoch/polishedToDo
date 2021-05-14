@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    <h2 class="text-center">Make a new Task Input.</h2>
+    <hr>
+    <form (ngSubmit)='submitTask()' #taskForm='ngForm'>
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" [(ngModel)]="newTask.title" name="title" #title='ngModel' required>
+            <div [hidden]="title.valid ||title.pristine" class="alert alert-danger"> 
+                <p>Title is required</p>
+            </div>
+            <p>Display {{newTask.title}}</p>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="complete">Completion</label>
+            <input type='date' id="complete" required>
+        </div>
+        <button type="submit" class="btn btn-success">Add Goal</button>
+    </form>
+  </div>

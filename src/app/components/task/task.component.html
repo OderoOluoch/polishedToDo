@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>My Goals</h1>
+  <hr>
+  <div class="row">
+    <div class="col-md-6">
+      <div *ngFor="let task of tasks; let i = index">
+          <div>
+            <h4 appStrikethrough> {{ task.title}} due on {{task.completeDate | date |uppercase}}</h4>
+            <button (click)='toggleDetails(i)' class="btn btn-primary">Toggle Details</button>              
+          </div>
+          <div *ngIf='task.showDescription' >
+            <app-task-detail [task]='task' (isComplete)='deleteTask($event,i)'></app-task-detail>
+          </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <app-task-form (addTask)="addNewTask($event)" ></app-task-form>
+    </div>
+  </div>
+  <p *ngIf='tasks.length > 5'>You have a lot of tasks to do.</p>
+</div>

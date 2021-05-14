@@ -1,0 +1,5 @@
+<div>
+    <p>{{ task.description}}</p>
+    <p>This task will be complete in {{task.completeDate|dateCount}} days</p>
+    <button (click)='taskDelete(true)' class="btn btn-warning">Delete Goal</button>
+</div>
